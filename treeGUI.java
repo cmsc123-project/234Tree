@@ -1,55 +1,59 @@
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-public class treeGUI extends JFrame{
-	JPanel panel;
+public class treeGUI extends JPanel{
 	JButton btn1;
 	JButton btn2;
 	JButton btn3;
-	Color color;
+	JTextField tf;
 	
-	public treeGUI() {
-		panel = new JPanel();
-		panel.setVisible(true);
-		
-		color = new Color(167, 220, 95);
-		
+	public treeGUI() { 
 		// for add
 		btn1 = new JButton("Insert");
-		panel.add(btn1);
-		btn1.setBounds(190, 610, 70, 18);
-		add(btn1);
+		btn1.setSize(20, 10);
+		btn1.setBackground(Color.gray);
 		
 		// for remove
 		btn2 = new JButton("Delete");
-		panel.add(btn2);
-		btn2.setBounds(280, 610, 70, 18);
-		add(btn2);
+		btn2.setSize(20, 10);
+		btn2.setBackground(Color.gray);
 		
 		// for search
 		btn3 = new JButton("Search");
-		panel.add(btn3);
-		btn3.setBounds(370, 610, 70, 18);
-		add(btn3);
+		btn3.setSize(20, 10);
+		btn3.setBackground(Color.gray);
 		
-		setTitle("2-3-4 Tree Simulator");
-		setBackground(color);
-		setSize(900, 700);
-		setLayout(null);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		tf = new JTextField(10);
+		tf.setSize(10, 10);
 		
+		btn1.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				tf.setText("Insert");
+			}
+		});
 		
-		final JTextField tf = new JTextField();
-		add(tf);
-		tf.setBounds(100, 610, 70, 18);
+		btn2.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				tf.setText("Delete");
+			}
+		});
+		
+		btn3.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				tf.setText("Search");
+			}
+		});
+	 
+		FlowLayout layout = new FlowLayout();
+    setLayout(layout);
+    add(tf, BorderLayout.NORTH);
+    add(btn1, BorderLayout.NORTH);
+    add(btn2, BorderLayout.NORTH);
+    add(btn3, BorderLayout.NORTH);
 	}
 	
 	public void paint(Graphics g) {
@@ -115,6 +119,14 @@ public class treeGUI extends JFrame{
  	}
 	
 	public static void main(String[] args) {
-		new treeGUI();
+		JFrame frame = new JFrame("2-3-4 Tree Simulator");
+		Color color = new Color(167, 220, 95);
+		frame.add(new treeGUI());
+		frame.setTitle("2-3-4 Tree Simulator");
+		frame.setBackground(color);
+		frame.setSize(900, 700);
+//		frame.setLayout(null);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
