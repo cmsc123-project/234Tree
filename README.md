@@ -9,8 +9,8 @@ The 2, 3, and 4 in the name 2-3-4 tree refer to how many links to child nodes ca
 – A node with three data items always has four children
 
 BY: 
-Danny Boy Noynay
-Franklin Okiya 
-Michael Justin Uyheng
-Silas Vincient Talisaysay
+Danny Boy Noynay,
+Franklin Okiya, 
+Michael Justin Uyheng,
+Silas Vincient Talisaysay,
 Angelo Rey Lumanta 
